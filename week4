@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Flexbox Layout</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation bar section -->
+  <header class="navbar">
+    <div class="logo">MySite</div>
+    <nav>
+      <ul class="nav-links">
+        <!-- Navigation menu items -->
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content area -->
+  <main class="main-content">
+    <!-- Individual content sections -->
+    <section class="content-box">Welcome to my website!</section>
+    <section class="content-box">About us</section>
+    <section class="content-box">Our Services</section>
+    <section class="content-box">Contact Information</section>
+  </main>
+
+  <!-- Footer section -->
+  <footer class="footer">
+    &copy; 2025 MySite. All rights reserved.
+  </footer>
+
+</body>
+</html>
+
+/*styles.css*/
+/* Reset default spacing and box model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base body styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fafafa;
+}
+
+/* ------------------ */
+/* Navigation Bar Styles */
+/* ------------------ */
+
+.navbar {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center; /* Center items vertically */
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+.navbar .logo {
+  font-size: 1.5rem; /* Logo text size */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none; /* Remove default bullet points */
+}
+
+.nav-links li {
+  margin-left: 1rem; /* Space between links */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ------------------ */
+/* Main Content Styles */
+/* ------------------ */
+
+.main-content {
+  display: flex; /* Flexbox for layout */
+  flex-wrap: wrap; /* Wrap items on smaller screens */
+  padding: 1rem;
+  gap: 1rem; /* Space between items */
+  justify-content: center; /* Center content */
+}
+
+.content-box {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  flex: 1 1 300px; /* Grow and shrink, base size 300px */
+  min-width: 250px;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* ------------------ */
+/* Footer Styles */
+/* ------------------ */
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* ------------------ */
+/* Responsive Layout - Tablet */
+/* ------------------ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack logo and links vertically */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links */
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .main-content {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+  }
+}
+
+/* ------------------ */
+/* Responsive Layout - Mobile */
+/* ------------------ */
+@media (max-width: 480px) {
+  .content-box {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+}
